@@ -1,11 +1,11 @@
-# *Costs of Living vs. Happiness
+# *Costs of Living vs. Happiness*
 
 El objetivo de este proyecto es crear un pipeline que muestre la relación entre el coste de vida y el índice de felicidad por país.
 
 ### EXTRACCIÓN DE DATOS
 
 1. Indice de felicidad por país reportado para el año 2019 (INPUT/2019.csv): https://www.kaggle.com/unsdsn/world-happiness#2019.csv
-2. Web scraping para obtener una tabla con precios de diferentes costes de vida y el salario medio neto mensual por país (webScraping_CostOfLife.ipynb): https://www.numbeo.com/cost-of-living/prices_by_country.jsp
+2. Web scraping para obtener una tabla con la media de precios de diferentes costes de vida y el salario medio neto mensual por país (webScraping_CostOfLife.ipynb): https://www.numbeo.com/cost-of-living/prices_by_country.jsp
 
 
 ### DATA CLEANING
@@ -39,6 +39,22 @@ Comando: *python3 main.py -x Spain -y fitness
 
 *-x identifica el país elegido.
 *-y identifica el coste elegido.
+
+Categorías de costes (información incluida en compando -h):
+
+- supermarket: suma de productos básicos simulando una cesta de la compra.
+- restaurant: menú en un restaurante barato
+- mid-range restaurant: menú para 2 personas en un restaurante medio.
+- mcdonalds: menú normal en McDonalds.
+- wine: botella de vino categoría media.
+- cigarettes: paquete de 20 cigarrillos (Marlboro).
+- rent: alquier apartmento de 1 dormitorio en el centro.
+- utilities: gastos electricidad, calefacción, agua, basuras, para apartamento de 85m2.
+- internet: 60 Mbps o más, datos ilimitados, cable/ADSL. 
+- fitness: cuota mensual de gimnasio para 1 adulto.
+- cinema: 1 entrada para estreno internacional.
+- public transport: Monthly Pass (Regular Price).
+- car: Volkswagen Golf 1.4 90 KW Trendline (O equivalente a un coche nuevo).
 
 Es necesario que el país se indique con la primera letra en mayúscula y el tipo de coste con todas las letras en minúscula (a mejorar).
 
