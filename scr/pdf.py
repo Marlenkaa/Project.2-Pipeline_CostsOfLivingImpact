@@ -9,4 +9,4 @@ def createPDF(data, country, cost):
     pdf.set_font('Helvetica', 'B', 12)
     pdf.multi_cell(0, 8, txt=data, align="C")
     pdf.image("../OUTPUT/graph.png", 45, 90, h=80)
-    return pdf.output("../OUTPUT/result.pdf")
+    return pdf.output("../OUTPUT/final-document.pdf")
