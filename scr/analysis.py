@@ -25,3 +25,4 @@ def scatterPlot(dfinal, cost):
     plot.set_ylabel(f'Cost of {cost}')
     fig = plot.get_figure()
     return fig.savefig("../OUTPUT/graph.png")
+    
