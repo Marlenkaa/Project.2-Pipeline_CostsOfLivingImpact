@@ -9,13 +9,13 @@ def compare(dfinal, country, cost):
     result = f'\nThe cost of {cost} represents {filt[0]}% of the average monthly salary in {country}.\n'
     result = result + f'\nThe happiness score in {country} is {filt[1]} over 10.\n'
     if (filt[0] - mean[0]) > 0 and (filt[1] - mean[1]) > 0:
-        result = result + f'\nThe cost of {cost} is {round(abs((filt[0] - mean[0])),2)}% higher than the average of 96 countries analised.\nEven so, they are happier than the average.\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% higher than the average of 96 countries analyzed ({mean[0]}%).\nEven so, they are happier than the average ({mean[1]}%).\n'
     elif (filt[0] - mean[0]) > 0 and (filt[1] - mean[1]) < 0:
-        result = result + f'\nThe cost of {cost} is {round(abs((filt[0] - mean[0])),2)}% higher than the average of 96 countries analised.\nFurthermore, they are less happy than the average.\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% higher than the average of 96 countries analyzed ({mean[0]}%).\nFurthermore, they are less happy than the average ({mean[1]}%).\n'
     elif (filt[0] - mean[0]) < 0 and (filt[1] - mean[1]) > 0:
-        result = result + f'\nThe cost of {cost} is {round(abs((filt[0] - mean[0])),2)}% lower than the average of 96 countries analised.\nBesides, they are happier than the average.\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%).\nBesides, they are happier than the average ({mean[1]}%).\n'
     elif (filt[0] - mean[0]) < 0 and (filt[1] - mean[1]) < 0:
-        result = result + f'\nThe cost of {cost} is {round(abs((filt[0] - mean[0])),2)}% lower than the average of 96 countries analised.\nInstead, they are less happy than the average.\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%).\nInstead, they are less happy than the average ({mean[1]}%).\n'
     return result
 
 # Muestra un diagrama de dispersión relacionando el coste elegido y el índice de felicidad para los 96 países:
