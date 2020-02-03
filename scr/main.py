@@ -2,28 +2,29 @@
 
 import pandas as pd
 import numpy as np
+import output
+import argparse
 
 import sys
-import argparse
 import subprocess
 import getpass
-import json
 import os
-import requests
-import re
-import datos
+
 
 def getFilters():
-    parser = argparse.ArgumentParser(description='XXXXXXXXXXXXXX')
-    parser.add_argument('--Country',
-                        help='XXXXXXXXXXXXX',
+    parser = argparse.ArgumentParser(description='Given a cost of living, we can see how much it costs depending of the average monthly salary of the chosen country (purchasing power), as well as the happiness index of that country, compared to the total average of 96 countries analyzed. In addition, we can check whether there is a relationship between both parameters')
+    parser.add_argument('-cou','--Country',
+                        metavar = '',
+                        required = True,
+                        help='Choose a country',
                         default="Spain"
                         )
-    parser.add_argument('--Cost',
-                        help='XXXXXXXXXXXXXXXX',
+    parser.add_argument('cos','--Cost',
+                        metavar = '',
+                        required = True,
+                        help='Choose a cost of living between: supermarket, restaurant, mid-range restaurant, mcdonalds, wine, wine, cigarettes, rent, utilities, internet, fitness, cinema, public transport and car',
                         default="wine"
                         )
-
     args = parser.parse_args()
     print(args)
     return args
@@ -31,12 +32,12 @@ def getFilters():
 def main():
     # Pipeline
     print(sys.argv)
-    # Recibe filters
+    # Receive filters
     data = getFilters()
     # Print data
     country = data.Country
     cost = data.Cost
-    print(FUNCION QUE HAGA TODO A LA VEZ(country, cost))
+    print(finalOutput(country, cost))
 
-if __name__=="__main__":
+if __name__ == '__main__':
     main()
