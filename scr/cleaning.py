@@ -3,7 +3,7 @@ import numpy as np
 
 # Extrae y organiza la tabla de costes de vida.
 def costsCleaning():
-    df = pd.read_csv('../INPUT/cost_of_life_by_country.csv')
+    df = pd.read_csv('../OUTPUT/cost_of_life_by_country.csv')
     # Renaming columns of use:
     df.rename(columns={'Meal, Inexpensive Restaurant':'restaurant',
                       'Meal for 2 People, Mid-range Restaurant, Three-course':'mid-range restaurant',
