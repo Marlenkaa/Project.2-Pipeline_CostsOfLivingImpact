@@ -66,3 +66,5 @@ Resultado: se genera un archivo pdf en la carpeta OUTPUT con el resultado de los
     - Gestionar los posibles errores al introducir valores en la terminal, como no hacer distinción entre mayúsculas y minúsculas, lanzar un mensaje de error con texto de ayuda en caso de introducir un país no analizado o un argumento erróneo...
     - Mejorar el diseño del pdf.
     - Traducir todo el proyecto a inglés.
+    - Refactorizar función 'compare(dfinal, country, cost)'.
+    - Incluir lanzamiento de un mensaje cuando se haya creado el pdf con su ruta.
