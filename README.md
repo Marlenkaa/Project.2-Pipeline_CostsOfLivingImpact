@@ -1,4 +1,4 @@
-# *Costs of Living vs. Happiness*
+# *Does costs of living affect our happiness?*
 
 El objetivo de este proyecto es crear un pipeline que muestre la relación entre el coste de vida y el índice de felicidad por país.
 
@@ -63,5 +63,6 @@ Resultado: se genera un archivo pdf en la carpeta OUTPUT con el resultado de los
 ##### A MEJORAR:
 
     - Incluir una línea de tendencia en el diagrama de dispersión.
-    - Gestionar los posibles errores al introducir valores en la terminal, como aceptar tanto mayúsculas como minúsculas, lanzar un mensaje de error con texto de ayuda en caso de introducir un país no analizado o un parámetro diferente...
-    - Mejor diseño del pdf.
+    - Gestionar los posibles errores al introducir valores en la terminal, como no hacer distinción entre mayúsculas y minúsculas, lanzar un mensaje de error con texto de ayuda en caso de introducir un país no analizado o un argumento erróneo...
+    - Mejorar el diseño del pdf.
+    - Traducir todo el proyecto a inglés.
