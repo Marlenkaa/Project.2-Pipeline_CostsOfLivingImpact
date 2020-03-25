@@ -1,6 +1,10 @@
 # *Does costs of living affect our happiness?*
 
-El objetivo de este proyecto es crear un pipeline que muestre la relación entre el coste de vida y el índice de felicidad por país.
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Shurlena/Project.2-Pipeline_CostsOfLivingImpact/master/images/project.jpg">
+</p>
+
+The goal of this project is create a pipeline that shows the relationship between a chosen cost of living and the happiness index of elected country. The final result is presented in a pdf file where we can check the cost impact on the average salary, as well as the happiness score reported in given country. Additionally, the cost impact is compared to the rest of the countries analyzed and we can find out if there is any relationship between both parameters from the scatter plot displayed.
 
 ### EXTRACCIÓN DE DATOS
 

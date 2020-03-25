@@ -8,16 +8,16 @@ def compare(dfinal, country, cost):
     filt = dfinal.loc[country, cost]
     mean = dfinal[[cost]].mean(axis=0)
     mean = round(mean,2)
-    result = f'\nThe cost of {cost} represents {filt[0]}% of the average monthly salary in {country}.\n'
-    result = result + f'\nThe happiness score in {country} is {filt[1]} over 10.\n'
+    result = f'\nThe cost of {cost} represents {filt[0]}% of the average monthly salary in {country.capitalize()}.\n'
+    result = result + f'\nThe happiness score in {country.capitalize()} is {filt[1]} over 10.\n'
     if (filt[0] - mean[0]) > 0 and (filt[1] - mean[1]) > 0:
-        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% higher than the average of 96 countries analyzed ({mean[0]}%).\nEven so, they are happier than the average ({mean[1]}).\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% higher than the average of 96 countries analyzed ({mean[0]}%/salary).\nEven so, people in {country.capitalize()} are happier than the average ({mean[1]}/10).\n'
     elif (filt[0] - mean[0]) > 0 and (filt[1] - mean[1]) < 0:
-        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% higher than the average of 96 countries analyzed ({mean[0]}%).\nFurthermore, they are less happy than the average ({mean[1]}).\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% higher than the average of 96 countries analyzed ({mean[0]}%/salary).\nFurthermore, people in {country.capitalize()} are less happy than the average ({mean[1]}/10).\n'
     elif (filt[0] - mean[0]) < 0 and (filt[1] - mean[1]) > 0:
-        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%).\nBesides, they are happier than the average ({mean[1]}).\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%/salary).\nBesides, people in {country.capitalize()} are happier than the average ({mean[1]}/10).\n'
     elif (filt[0] - mean[0]) < 0 and (filt[1] - mean[1]) < 0:
-        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%).\nInstead, they are less happy than the average ({mean[1]}).\n'
+        result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%/salary).\nInstead, people in {country.capitalize()} are less happy than the average ({mean[1]}/10).\n'
     return result
 
 def scatterPlot(dfinal, cost):
