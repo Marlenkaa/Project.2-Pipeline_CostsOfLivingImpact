@@ -1,8 +1,10 @@
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Compara los datos de los filtros elegidos con la media:
 def compare(dfinal, country, cost):
+    '''Compares the parameters chosen in pipeline with the average'''
     filt = dfinal.loc[country, cost]
     mean = dfinal[[cost]].mean(axis=0)
     mean = round(mean,2)
@@ -18,10 +20,12 @@ def compare(dfinal, country, cost):
         result = result + f'\nThe cost of {cost} is {round(((abs((filt[0] - mean[0])))/mean[0])*100,2)}% lower than the average of 96 countries analyzed ({mean[0]}%).\nInstead, they are less happy than the average ({mean[1]}).\n'
     return result
 
-# Muestra un diagrama de dispersión relacionando el coste elegido y el índice de felicidad para los 96 países:
 def scatterPlot(dfinal, cost):
-    plot = dfinal.plot.scatter(x=(cost,'happiness'), y=(cost,'% salary'), title=f'Relation between cost of {cost} and happiness in 96 countries')
-    plot.set_xlabel('Happiness score')
-    plot.set_ylabel(f'Cost of {cost}')
-    fig = plot.get_figure()
-    return fig.savefig("../OUTPUT/graph.png")
+    '''Displays a scatter plot with trend line that compares the cost of living chosen and the 
+    happiness index by country.'''
+    dfinal['Hapiness score'] = dfinal[cost]['happiness']
+    dfinal[f'Cost of {cost}'] = dfinal[cost]['% salary']
+    plot = sns.lmplot(x='Hapiness score', y=f'Cost of {cost}', data=dfinal)
+    ax = plt.gca()
+    ax.set_title(f'Relation between cost of {cost} and happiness in 96 countries')
+    return plot.savefig("OUTPUT/graph.png")

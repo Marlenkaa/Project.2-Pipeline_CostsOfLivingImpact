@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
 
-# Extrae y organiza la tabla de costes de vida.
 def costsCleaning():
-    df = pd.read_csv('../OUTPUT/cost_of_life_by_country.csv')
+    '''Cleans and organize the costs of living csv'''
+    df = pd.read_csv('OUTPUT/cost_of_life_by_country.csv')
     # Renaming columns of use:
     df.rename(columns={'Meal, Inexpensive Restaurant':'restaurant',
                       'Meal for 2 People, Mid-range Restaurant, Three-course':'mid-range restaurant',
@@ -26,21 +26,24 @@ def costsCleaning():
     costs = df[['country', 'supermarket', 'restaurant', 'mid-range restaurant', 'mcdonalds', 'wine', 'cigarettes', 'rent', 'utilities', 'internet', 'fitness', 'cinema', 'public transport', 'car', 'salary']]
     # Removing Venezuela from the analysis as it is an outlier:
     costs = costs[costs.country != 'Venezuela']
+    # Apply lowercase to all countries
+    costs['country'] = costs['country'].apply(lambda x: x.lower())
     return costs
 
-# Extrae y organiza la tabla de índice de felicidad.
 def happinessCleaning():
-    df = pd.read_csv('../INPUT/2019.csv')
+    '''Cleans and organize the happiness index by country csv'''
+    df = pd.read_csv('INPUT/2019.csv')
     # Renaming columns of use:
     df.rename(columns={'Country or region':'country',
                        'Score':'happiness',
                      }, inplace=True)
     happiness = df[['country', 'happiness']]
     happiness = happiness.round({'happiness':2})
+    happiness['country'] = happiness['country'].apply(lambda x: x.lower())
     return happiness
 
-# Reorganiza el DataFrame fusionado y lo prepara para dar datos finales.
 def mergedTable(merged):
+    '''Reorganize and merge both DataFrames, and prepare them to final analysis'''
     # Renaming column salary as it will represent the % of cost over salary:
     merged.rename(columns={'salary':'% salary'}, inplace=True)
     # Creating a MultiIndex for every cost of living related with salary and happiness score:
