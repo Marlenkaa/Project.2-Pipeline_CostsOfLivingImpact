@@ -49,7 +49,7 @@ For further instructions, a help command is available: ***python3 main.py -h***
 It will be displayed a message reporting that our request was successfully made and the pdf was created in the OUTPUT directory. The file would look like this:
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Shurlena/Project.2-Pipeline_CostsOfLivingImpact/master/images/finalPDF.jpg" width="600">
+    <img src="https://raw.githubusercontent.com/Shurlena/Project.2-Pipeline_CostsOfLivingImpact/master/images/finalPDF.png" width="500">
 </p>
 
 In this example we have requested to see if there is any relationship between the average price of wine and the happiness index in Spain.
