@@ -4,71 +4,58 @@
     <img src="https://raw.githubusercontent.com/Shurlena/Project.2-Pipeline_CostsOfLivingImpact/master/images/project.jpg">
 </p>
 
-The goal of this project is create a pipeline that shows the relationship between a chosen cost of living and the happiness index of elected country. The final result is presented in a pdf file where we can check the cost impact on the average salary, as well as the happiness score reported in given country. Additionally, the cost impact is compared to the rest of the countries analyzed and we can find out if there is any relationship between both parameters from the scatter plot displayed.
+The goal of this project is create a pipeline that shows the relationship between a chosen cost of living price and the happiness index of elected country. The final result is presented in a pdf file where we can check the cost impact on the average salary, as well as the happiness score reported in given country. Additionally, the cost impact is compared to the rest of the countries analyzed and we can find out if there is any relationship between both parameters from the scatter plot displayed.
 
-### EXTRACCIÓN DE DATOS
+### INPUT
 
-1. Indice de felicidad por país reportado para el año 2019 (*INPUT/2019.csv*): https://www.kaggle.com/unsdsn/world-happiness#2019.csv
-2. Web scraping para obtener una tabla con la media de precios de diferentes costes de vida y el salario medio neto mensual por país (*webScraping_CostOfLife.ipynb*): https://www.numbeo.com/cost-of-living/prices_by_country.jsp
+To make our analysis, we need the World Happiness Report 2019, which is the csv we start from. It can be found right here in Kaggle: https://www.kaggle.com/unsdsn/world-happiness#2019.csv
 
+Also, we need the average prices of different costs of living by country, as well as the average month salary. But to get that information, is necessary to do web scraping (webScraping_CostOfLife.ipynb) on this web: https://www.numbeo.com/cost-of-living/prices_by_country.jsp
 
-### DATA CLEANING
-
-*cleaning.py(scr)* -> funciones que recogen la limpieza y organización de datos de ambas tablas. Resumen:
-
-    - Se ha renombrado columnas para un uso más cómodo de los parámetros.
-    - Se ha creado una nueva columna 'supermarket' resultante de la suma de productos de supermercado simulando una cesta de la compra. De esta manera simplificamos columnas
-    - Se retira del análisis a Venezuela, que debido a su situación económica, genera grandes desviaciones en los datos.
-    - Se fusiona las dos tablas para incluir el índice de felicidad.
-    - Se reorganiza la tabla final para obtener el porcentaje de sueldo que supone cada coste.
-    
-### ANALYSIS
-    
-*analysis.py(scr)* -> funciones que recogen el análisis de los datos. Resumen:
-
-    - Se compara el coste sobre salario de cada país con la media de coste de los 96 países analizados.
-    - Se compara el índice de felicidad de cada país con la media del índice de felicidad de los 96 países analizados.
-    - Se muestra un diagrama de dispersión que busca la relación entre el coste elegido y el índice de felicidad para cada uno de los países.
-    
 ### OUTPUT
 
-*pdf.py(scr)* -> función para la creación de un pdf con la información analizada.
-*output.py(scr)* -> función que contiene todas las funciones anteriores para automatizar y ejecutar el proceso en un único paso.
-*main.py(scr)* -> contiene la configuración del pipeline
+Here we can find the csv file with the saved data after web scraping, as well as an example of the final pdf output generated from pipeline request and the scatter plot image inserted into pdf file.
 
+### scr
 
-## HOW IT WORKS:
+All the cleaning, analysis and preparation process is condensed in the following scripts:
 
-Comando: *python3 main.py -x Spain -y fitness*
+*cleaning.py* -> functions that cleans and organize the data from World Happiness Report csv and Costs of Living scraped csv, merge them togheter and create the final dataframe with the impact of each cost of living on the average month salary by country and the happiness index reported.
 
-*-x identifica el país elegido.*
-*-y identifica el coste elegido.*
+*analysis.py* -> functions that compare the impact of costs per country with the average impact of all countries, the same comparision with happiness index and create a scatter plot that relates both parameters for trend searches.
 
-Categorías de costes (*información incluida en compando -h*):
+*pdf.py* -> creates a pdf with the analysis made in the previous script.
 
-- supermarket: suma de productos básicos simulando una cesta de la compra.
-- restaurant: menú en un restaurante barato
-- mid-range restaurant: menú para 2 personas en un restaurante medio.
-- mcdonalds: menú normal en McDonalds.
-- wine: botella de vino categoría media.
-- cigarettes: paquete de 20 cigarrillos (Marlboro).
-- rent: alquier apartmento de 1 dormitorio en el centro.
-- utilities: gastos electricidad, calefacción, agua, basuras, para apartamento de 85m2.
-- internet: 60 Mbps o más, datos ilimitados, cable/ADSL. 
-- fitness: cuota mensual de gimnasio para 1 adulto.
-- cinema: 1 entrada para estreno internacional.
-- public transport: Monthly Pass (Regular Price).
-- car: Volkswagen Golf 1.4 90 KW Trendline (O equivalente a un coche nuevo).
+*output.py* -> holds all the previous scripts in one function to execute them in programmed order once the pipeline search is runned.
 
-Es necesario que el país se indique con la primera letra en mayúscula y el tipo de coste con todas las letras en minúscula (a mejorar).
+*functions-tests.ipynb* -> checks if all created functions that were introduced in the previous scripts work properly.
 
-Resultado: se genera un archivo pdf en la carpeta OUTPUT con el resultado de los argumentos introducidos.
+*pipelineCheck.py* -> functions designed to handle the possible value errors introduced in our pipeline whilst parameters are elected, such as misspelling or values not contemplated in our analysis.
 
-##### A MEJORAR:
+*webScraping_CostOfLife.ipynb* -> notebook that contains the web scraping made to obtain the necessary data about cost averages and monthly salary by country (cost_of_life_by_country.csv in OUTPUT).
 
-    - Incluir una línea de tendencia en el diagrama de dispersión.
-    - Gestionar los posibles errores al introducir valores en la terminal, como no hacer distinción entre mayúsculas y minúsculas, lanzar un mensaje de error con texto de ayuda en caso de introducir un país no analizado o un argumento erróneo...
-    - Mejorar el diseño del pdf.
-    - Traducir todo el proyecto a inglés.
-    - Refactorizar función 'compare(dfinal, country, cost)'.
-    - Incluir lanzamiento de un mensaje cuando se haya creado el pdf con su ruta.
+### main.py
+
+This is the main of this project and where all previous work is condensed to create our pipeline.
+
+##### HOW IT WORKS:
+
+Bash command to execute the pipeline: ***python3 main.py -x <chosen_country> -y <chosen_cost>***
+
+For further instructions, a help command is available: ***python3 main.py -h***
+
+** Pipeline parameters are case-insensitive
+
+It will be displayed a message reporting that our request was successfully made and the pdf was created in the OUTPUT directory. The file would look like this:
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Shurlena/Project.2-Pipeline_CostsOfLivingImpact/master/images/finalPDF.jpg" width="600">
+</p>
+
+In this example we have requested to see if there is any relationship between the average price of wine and the happiness index in Spain.
+
+As we can see, the impact of wine price in the monthly salary average of spanish people represents an 0.39%, while the happiness score reported by spaniards in 2019 was 6.35 points over 10.
+
+Comparing this data to the rest of 96 countries, the price of wine in Spain is 69.29% cheaper and also the spanish population is happier than the average (5.89 over 10).
+
+Therefore, checking the scatter plot, we see that could exist a relashionship between these two concepts, as the cheaper the wine is the happier people are (negative tendency line).
