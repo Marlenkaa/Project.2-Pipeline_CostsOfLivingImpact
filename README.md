@@ -20,19 +20,19 @@ Here we can find the csv file with the saved data after web scraping, as well as
 
 All the cleaning, analysis and preparation process is condensed in the following scripts:
 
-*cleaning.py* -> functions that cleans and organize the data from World Happiness Report csv and Costs of Living scraped csv, merge them togheter and create the final dataframe with the impact of each cost of living on the average month salary by country and the happiness index reported.
+* *cleaning.py* -> functions that cleans and organize the data from World Happiness Report csv and Costs of Living scraped csv, merge them togheter and create the final dataframe with the impact of each cost of living on the average month salary by country and the happiness index reported.
 
-*analysis.py* -> functions that compare the impact of costs per country with the average impact of all countries, the same comparision with happiness index and create a scatter plot that relates both parameters for trend searches.
+* *analysis.py* -> functions that compare the impact of costs per country with the average impact of all countries, the same comparision with happiness index and create a scatter plot that relates both parameters for trend searches.
 
-*pdf.py* -> creates a pdf with the analysis made in the previous script.
+* *pdf.py* -> creates a pdf with the analysis made in the previous script.
 
-*output.py* -> holds all the previous scripts in one function to execute them in programmed order once the pipeline search is runned.
+* *output.py* -> holds all the previous scripts in one function to execute them in programmed order once the pipeline search is runned.
 
-*functions-tests.ipynb* -> checks if all created functions that were introduced in the previous scripts work properly.
+* *functions-tests.ipynb* -> checks if all created functions that were introduced in the previous scripts work properly.
 
-*pipelineCheck.py* -> functions designed to handle the possible value errors introduced in our pipeline whilst parameters are elected, such as misspelling or values not contemplated in our analysis.
+* *pipelineCheck.py* -> functions designed to handle the possible value errors introduced in our pipeline whilst parameters are elected, such as misspelling or values not contemplated in our analysis.
 
-*webScraping_CostOfLife.ipynb* -> notebook that contains the web scraping made to obtain the necessary data about cost averages and monthly salary by country (cost_of_life_by_country.csv in OUTPUT).
+* *webScraping_CostOfLife.ipynb* -> notebook that contains the web scraping made to obtain the necessary data about cost averages and monthly salary by country (cost_of_life_by_country.csv in OUTPUT).
 
 ### main.py
 
